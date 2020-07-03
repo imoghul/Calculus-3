@@ -18,5 +18,7 @@ vOperator.cross3d(v1,v2).show()
 #print vOperator.cross2d(v1,v2)
 print "Dot Product: "
 print vOperator.dot(v1,v2)
-#print "Gradient v1"
-#vOperator.gradient(v1).show() 
+
+vOperator.gradient("x^2*y*z").show()
+
+#g.show()

@@ -7,9 +7,10 @@ class VectorOperator:
 	cOperator=CalculusOperator()
 
 	def __init__(self):
-		x=Symbol('x')
-        y=Symbol('y')
-        z=Symbol('z')
+		#x=Symbol('x')
+        #y=Symbol('y')
+        #z=Symbol('z')
+		print "VECTOR OPERATOR intiated"
 	def multiply(self,first,second):
 		return ("(%s)*(%s)")%(first,second)
 	
@@ -26,9 +27,6 @@ class VectorOperator:
 	def cross2d(self,v1,v2):
 		return self.cOperator.evaluate(self.subtract( self.multiply(v1.getX(),v2.getY()) , self.multiply(v1.getY(),v2.getX()) ) )
 	def gradient(self,f):
-		x=Symbol('x')
-		y=Symbol('y')
-		z=Symbol('z')
-		
-		#return Vector(self.cOperator.derivative("""function""",x),self.cOperator.derivative("""function""",y),self.cOperator.derivative("""function""",z))
+
+		return Vector(self.cOperator.derivative(f,Symbol('x')),self.cOperator.derivative(f,Symbol('y')),self.cOperator.derivative(f,Symbol('z')))
 		
