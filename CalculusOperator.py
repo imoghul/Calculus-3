@@ -8,7 +8,7 @@ class CalculusOperator:
         y=Symbol('y')
         z=Symbol('z')
     def multiply(self,first,second):
-		return ("(%s)*(%s)")%(first,second)
+		return self.evaluate(("(%s)*(%s)")%(first,second))
 
     def divide(self,first,second):
 		return self.evaluate(("(%s)/(%s)")%(first,second))
@@ -25,9 +25,9 @@ class CalculusOperator:
 		return self.evaluate(expr)
 
     def subtract(self,first,second):
-		return ("(%s)-(%s)")%(first,second)
+		return self.evaluate(("(%s)-(%s)")%(first,second))
     def power(self, base, exp):
-        return ("(%s)^(%s)")%(base,exp)
+        return self.evaluate(("(%s)^(%s)")%(base,exp))
 
     def evaluate(self,expression):
         return simplify(expression)
