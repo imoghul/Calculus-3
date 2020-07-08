@@ -36,4 +36,16 @@ class CalculusOperator:
     def indefiniteIntegral(self,func,differential):
         return integrate(func)
     def definiteIntegral(self,func,differential,upper,lower):
-        return integrate(func,(differential,upper,lower))
+        return integrate(func,(differential,lower,upper))
+    def indefiniteIntegrals(self,func,differentials):
+        expr=func
+        for i in differentials:
+            expr = self.evaluate(integrate(expr,i))
+        return expr
+    def definiteIntegrals(self,func,differentials):
+        # Differential list is 2d array: { {differential, lower, upper} , {differential, lower, upper}, {differential, lower, upper}, ...}
+        expr=func
+        for i in differentials:
+            expr = self.evaluate(integrate(expr,i[0],i[1],i[2]))
+        return expr
+    
