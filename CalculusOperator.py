@@ -42,6 +42,7 @@ class CalculusOperator:
         return simplify(expression)
 
     def plug(self,expression,variables):
+        # variables is a 2d array: {{"variables",value},{"variables",value},...}
         for i in variables:
             expression.replace(variables[0],variables[1])
         return simplify(expression)
