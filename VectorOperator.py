@@ -21,6 +21,5 @@ class VectorOperator:
 	def cross2d(self,v1,v2):
 		return (self.cOperator.subtract( self.cOperator.multiply(v1.getX(),v2.getY()) , self.cOperator.multiply(v1.getY(),v2.getX()) ) )
 	def gradient(self,f):
-
 		return Vector(self.cOperator.derivative(f,Symbol('x')),self.cOperator.derivative(f,Symbol('y')),self.cOperator.derivative(f,Symbol('z')))
 		

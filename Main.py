@@ -13,7 +13,3 @@ v1=Vector( str(raw_input("x1: ")) , str(raw_input("y1: ")) , str(raw_input("z1: 
 v1.show()
 v2=Vector( str(raw_input("x2: ")) , str(raw_input("y2: ")) , str(raw_input("z2: "))  )
 v2.show()
-
-
-
- 

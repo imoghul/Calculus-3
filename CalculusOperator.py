@@ -10,6 +10,15 @@ class CalculusOperator:
     def multiply(self,first,second):
 		return self.evaluate(("(%s)*(%s)")%(first,second))
 
+    def multiplyM(self,list):
+		expr=""
+		for i in range(len(list)):
+			expr += list[i]
+			if (i<len(list)-1):
+				expr += "*"
+
+		return self.evaluate(expr)
+
     def divide(self,first,second):
 		return self.evaluate(("(%s)/(%s)")%(first,second))
 	
