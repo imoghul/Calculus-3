@@ -40,6 +40,10 @@ class CalculusOperator:
 
     def evaluate(self,expression):
         return simplify(expression)
+
+    def plug(self,expression,variables):
+        for i in variables:
+            expression.replace(variables[0],variables[1])
     def derivative(self,func,differential):
         return diff(func,differential)
     def indefiniteIntegral(self,func,differential):
