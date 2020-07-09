@@ -44,6 +44,7 @@ class CalculusOperator:
     def plug(self,expression,variables):
         for i in variables:
             expression.replace(variables[0],variables[1])
+        return simplify(expression)
     def derivative(self,func,differential):
         return diff(func,differential)
     def indefiniteIntegral(self,func,differential):
