@@ -4,12 +4,15 @@ from sympy import *
 class CalculusOperator:
 
     def __init__(self):
+
         x=Symbol('x')
         y=Symbol('y')
         z=Symbol('z')
+
+
     def multiply(self,first,second):
 		return self.evaluate(("(%s)*(%s)")%(first,second))
-
+    
     def multiplyM(self,list):
 		expr=""
 		for i in range(len(list)):
@@ -42,8 +45,10 @@ class CalculusOperator:
         return simplify(expression)
 
     def plug(self,expression,variables):
+        # variables is a 2d array: {{"variable",value},{"variable ",value},...}
         for i in variables:
-            expression.replace(variables[0],variables[1])
+            expression=expression.replace(str(i[0]),str(i[1]))
+
         return simplify(expression)
     def derivative(self,func,differential):
         return diff(func,differential)
