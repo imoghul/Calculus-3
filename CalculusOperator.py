@@ -1,6 +1,6 @@
 from __future__ import division
 from sympy import *
-
+import numpy
 class CalculusOperator:
 
     def __init__(self):
@@ -67,4 +67,13 @@ class CalculusOperator:
         for i in differentials:
             expr = self.evaluate(integrate(expr,i[0],i[1],i[2]))
         return expr
-    
+    def nthDerivative(self, func, differential,n):
+        for i in range(n):
+            func=self.derivative(func,differential)
+        return str(func)
+    def taylorSeries(self, func, differential, n, a):
+        taylor="0"
+        for i in range(n):
+            taylor = taylor+" + (%d/%d)*((x-%d)^%d)"%( self.plug( self.nthDerivative(func,differential,i) , [["x",0]] ),factorial(i),a,i)
+            print taylor
+        return self.evaluate(taylor)
