@@ -42,7 +42,7 @@ class CalculusOperator:
         return self.evaluate(("(%s)^(%s)")%(base,exp))
 
     def evaluate(self,expression):
-        return str(simplify(expression)).replace("**","^")
+        return str(simplify(expression.replace("log(e)","1").replace("ln(e)","1"))).replace("**","^").replace("log","ln").replace("e-","*10^")
 
     def plug(self,expression,variables):
         # variables is a 2d array: {{"variable",value},{"variable ",value},...}
@@ -50,7 +50,7 @@ class CalculusOperator:
         for i in variables:
             expression=expression.replace(str(i[0]),str(i[1]))
 
-        return (str(simplify(expression)).replace("**","^")).replace("log","ln")
+        return (str(simplify(expression)).replace("**","^")).replace("log","ln").replace("log(e)","1")
     def derivative(self,func,differential):
         return diff(func,differential)
     def indefiniteIntegral(self,func,differential):
@@ -72,12 +72,15 @@ class CalculusOperator:
         for i in range(n):
             func=self.derivative(func,differential)
         return str(func)
-    def taylorSeries(self, func, differential, n, a):
+    def realTaylorSeries(self, func, differential, n, a):
         taylor="0"
         for i in range(n):
-            nthDerivativeValue=str(self.plug( self.nthDerivative(func,differential,i) , [["x",a]] ))
+            nthDerivativeValue=(self.plug( self.nthDerivative(func,differential,i) , [["x",a]] ))
             
-            taylor = taylor+" + (%s/%d)*((x-%d)^%d)"%( str(nthDerivativeValue),float(factorial(i)),a,i)
+            taylor = taylor+" + (%s/%d)*((x-%d)^%d)"%( (nthDerivativeValue),float(factorial(i)),a,i)
             ######taylor = taylor+" + ("+str(nthDerivativeValue)+"/"+str(factorial(i))+")*((x-"+str(a)+")**"+str(i)
             #print taylor
-        return self.evaluate(taylor)
+        return (self.evaluate(str(taylor)))
+    def approxTaylorSeries(self,func,differential, n,a):
+        return self.evaluate(str(simplify((self.realTaylorSeries(func,differential,n,a))).evalf()))#.replace("**","^").replace("log","ln").replace("log(e)","1").replace("ln(e)","1")
+        
