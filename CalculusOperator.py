@@ -46,6 +46,7 @@ class CalculusOperator:
 
     def plug(self,expression,variables):
         # variables is a 2d array: {{"variable",value},{"variable ",value},...}
+        expression = str(expression)
         for i in variables:
             expression=expression.replace(str(i[0]),str(i[1]))
 
@@ -74,6 +75,7 @@ class CalculusOperator:
     def taylorSeries(self, func, differential, n, a):
         taylor="0"
         for i in range(n):
-            taylor = taylor+" + (%d/%d)*((x-%d)^%d)"%( self.plug( self.nthDerivative(func,differential,i) , [["x",0]] ),factorial(i),a,i)
-            print taylor
+            nthDerivativeValue=float(self.plug( self.nthDerivative(func,differential,i) , [["x",a]] ))
+            taylor = taylor+" + (%s/%d)*((x-%d)^%d)"%( str(nthDerivativeValue),float(factorial(i)),a,i)
+            #taylor = taylor+" + ("+str(nthDerivativeValue)+"/"+str(factorial(i))+")*((x-"+str(a)+")**"+str(i)
         return self.evaluate(taylor)
