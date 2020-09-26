@@ -42,7 +42,7 @@ class CalculusOperator:
         return self.evaluate(("(%s)^(%s)")%(base,exp))
 
     def evaluate(self,expression):
-        return str(simplify(expression.replace("log(e)","1").replace("ln(e)","1"))).replace("**","^").replace("log","ln").replace("e-","*10^")
+        return str(simplify(expression.replace("log(e)","1").replace("ln(e)","1"))).replace("**","^").replace("log","ln").replace("e-","*10^-")
 
     def plug(self,expression,variables):
         # variables is a 2d array: {{"variable",value},{"variable ",value},...}
@@ -82,5 +82,5 @@ class CalculusOperator:
             #print taylor
         return (self.evaluate(str(taylor)))
     def approxTaylorSeries(self,func,differential, n,a):
-        return self.evaluate(str(simplify((self.realTaylorSeries(func,differential,n,a))).evalf()))#.replace("**","^").replace("log","ln").replace("log(e)","1").replace("ln(e)","1")
+        return self.evaluate((str(simplify((self.realTaylorSeries(func,differential,n,a))).evalf())))#.replace("**","^").replace("log","ln").replace("log(e)","1").replace("ln(e)","1")
         
