@@ -40,7 +40,8 @@ class CalculusOperator:
 		return self.evaluate(("(%s)-(%s)")%(first,second))
     def power(self, base, exp):
         return self.evaluate(("(%s)^(%s)")%(base,exp))
-
+    def formatter(self, expr):
+        
     def evaluate(self,expression):
         return str(simplify(expression.replace("log(e)","1").replace("ln(e)","1"))).replace("**","^").replace("log","ln").replace("e-","*10^-")
 
