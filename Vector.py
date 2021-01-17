@@ -32,15 +32,15 @@ class Vector:
 	
 	def scale(self,num):
 		if(type(num)==int):
-			if(type(self.x)==int):
+			if(isinstance(self.x,(int,float))):
 				self.x*=num
 			else:
 				self.x=self.cOperator.multiply(self.x,num)
-			if(type(self.y)==int):
+			if(isinstance(self.y,(int,float))):
 				self.y*=num
 			else:
 				self.y=self.cOperator.multiply(self.y,num)
-			if(type(self.z)==int):
+			if(isinstance(self.z,(int,float))):
 				self.z*=num
 			else:
 				self.z=self.cOperator.multiply(self.z,num)
@@ -50,56 +50,56 @@ class Vector:
 			self.z=self.cOperator.multiply(self.z,num)
 	
 	def add(self,other):
-		if(type(self.x)==int and type(other.x)==int):
+		if(isinstance(self.x,(int,float)) and isinstance(other.x,(int,float))):
 			self.x += other.x
 		else:
 			self.x=self.cOperator.add(self.x,other.x)
-		if(type(self.y)==int and type(other.y)==int):
+		if(isinstance(self.y,(int,float)) and isinstance(other.y,(int,float))):
     			self.y += other.y
 		else:
 			self.y=self.cOperator.add(self.y,other.y)
-		if(type(self.z)==int and type(other.z)==int):
+		if(isinstance(self.z,(int,float)) and isinstance(other.z,(int,float))):
     			self.z += other.z
 		else:
 			self.z=self.cOperator.add(self.z,other.z)
 		
 	def subtract(self,other):
-		if(type(self.x)==int and type(other.x)==int):
+		if(isinstance(self.x,(int,float)) and isinstance(other.x,(int,float))):
 			self.x -= other.x
 		else:
 			self.x=self.cOperator.subtract(self.x,other.x)
-		if(type(self.y)==int and type(other.y)==int):
+		if(isinstance(self.y,(int,float)) and isinstance(other.y,(int,float))):
 			self.y -= other.y
 		else:
 			self.y=self.cOperator.subtract(self.y,other.y)
-		if(type(self.z)==int and type(other.z)==int):
+		if(isinstance(self.z,(int,float)) and isinstance(other.z,(int,float))):
 			self.z -= other.z
 		else:
 			self.z=self.cOperator.sub(self.z,other.z)
 	def multiply(self,other):
-		if(type(self.x)==int and type(other.x)==int):
+		if(isinstance(self.x,(int,float)) and isinstance(other.x,(int,float))):
 			self.x *= other.x
 		else:
 			self.x=self.cOperator.multiply(self.x,other.x)
-		if(type(self.y)==int and type(other.y)==int):
+		if(isinstance(self.y,(int,float)) and isinstance(other.y,(int,float))):
 			self.y *= other.y
 		else:
 			self.y=self.cOperator.multiply(self.y,other.y)
-		if(type(self.z)==int and type(other.z)==int):
+		if(isinstance(self.z,(int,float)) and isinstance(other.z,(int,float))):
 			self.z *= other.z
 		else:
 			self.z=self.cOperator.multiply(self.z,other.z)
 
 	def divide(self,other):
-		if(type(self.x)==int and type(other.x)==int):
+		if(isinstance(self.x,(int,float)) and isinstance(other.x,(int,float))):
 			self.x /= other.x
 		else:
 			self.x=self.cOperator.divide(self.x,other.x)
-		if(type(self.y)==int and type(other.y)==int):
+		if(isinstance(self.y,(int,float)) and isinstance(other.y,(int,float))):
 			self.y /= other.y
 		else:
 			self.y=self.cOperator.divide(self.y,other.y)
-		if(type(self.z)==int and type(other.z)==int):
+		if(isinstance(self.z,(int,float)) and isinstance(other.z,(int,float))):
 			self.z /= other.z
 		else:
 			self.z=self.cOperator.divide(self.z,other.z)

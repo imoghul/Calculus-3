@@ -11,33 +11,33 @@ class CalculusOperator:
 
 
     def multiply(self,first,second):
-		return self.evaluate(("(%s)*(%s)")%(first,second))
+	    return self.evaluate(("(%s)*(%s)")%(first,second))
     
     def multiplyM(self,list):
-		expr=""
-		for i in range(len(list)):
-			expr += list[i]
-			if (i<len(list)-1):
-				expr += "*"
+	    expr=""
+	    for i in range(len(list)):
+	    	expr += list[i]
+	    	if (i<len(list)-1):
+	    		expr += "*"
 
-		return self.evaluate(expr)
+	    return self.evaluate(expr)
 
     def divide(self,first,second):
-		return self.evaluate(("(%s)/(%s)")%(first,second))
+	    return self.evaluate(("(%s)/(%s)")%(first,second))
 	
     def add(self,first,second):
-		return ("(%s)+(%s)")%(first,second)
+	    return ("(%s)+(%s)")%(first,second)
     def addM(self,list):
-		expr=""
-		for i in range(len(list)):
-			expr += list[i]
-			if (i<len(list)-1):
-				expr += "+"
+	    expr=""
+	    for i in range(len(list)):
+	    	expr += list[i]
+	    	if (i<len(list)-1):
+	    		expr += "+"
 
-		return self.evaluate(expr)
+	    return self.evaluate(expr)
 
     def subtract(self,first,second):
-		return self.evaluate(("(%s)-(%s)")%(first,second))
+	    return self.evaluate(("(%s)-(%s)")%(first,second))
     def power(self, base, exp):
         return self.evaluate(("(%s)^(%s)")%(base,exp))
     # def formatter(self, expr):
