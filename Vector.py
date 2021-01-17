@@ -9,6 +9,11 @@ class Vector:
 		self.x=xcoor
 		self.y=ycoor
 		self.z=zcoor
+	def __init__(self,v):
+		self.cOperator = CalculusOperator()
+		self.x=v.x
+		self.y=v.y
+		self.z=v.z
 
 	def getX(self):
 		return self.x
