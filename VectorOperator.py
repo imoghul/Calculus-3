@@ -10,7 +10,7 @@ class VectorOperator:
 		#x=Symbol('x')
         #y=Symbol('y')
         #z=Symbol('z')
-		print "VECTOR OPERATOR intiated"
+		print("VECTOR OPERATOR intiated")
 	
 
 	def dot(self,v1,v2):

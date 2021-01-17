@@ -9,9 +9,9 @@ x,y,z = Symbol('x'), Symbol('y'), Symbol('z')
 
 #print cOperator.indefiniteIntegrals(str(raw_input("input function:")),[ [x,2,1] , [y,2,1] , [z,31,2] ])
 
-print cOperator.realTaylorSeries("e^x",x,10,3)
-print ""
-print cOperator.approxTaylorSeries("e^x",x,10,3)
+# print cOperator.realTaylorSeries("e^x",x,10,3)
+# print ""
+# print cOperator.approxTaylorSeries("e^x",x,10,3)
 
 """v1=Vector( str(raw_input("x1: ")) , str(raw_input("y1: ")) , str(raw_input("z1: "))  )
 v1.show()

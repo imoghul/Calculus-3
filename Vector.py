@@ -36,7 +36,7 @@ class Vector:
 		return Vector(self.cOperator.divide( self.x,self.getMagnitude()) , self.cOperator.divide(self.y,self.getMagnitude()) , self.cOperator.divide(self.z,self.getMagnitude()))
 	
 	def show(self):
-		print "<",self.x,", ",self.y,", ",self.z,">"
+		print ("<",self.x,", ",self.y,", ",self.z,">")
 	def toStr(self):
 		return "<",self.x,", ",self.y,", ",self.z,">"
 	def toVPython(self):
