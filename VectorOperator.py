@@ -12,6 +12,7 @@ class VectorOperator:
         #z=Symbol('z')
 		print("VECTOR OPERATOR intiated")
 	
+	
 
 	def dot(self,v1,v2):
 		return self.cOperator.evaluate(self.cOperator.add(self.cOperator.add(self.cOperator.multiply(v1.getX(),v2.getX()),self.cOperator.multiply(v1.getY(),v2.getY())),self.cOperator.multiply(v1.getZ(),v2.getZ())))  #(v1.getX()*v2.getX())+(v1.getY()*v2.getY())+(v1.getZ()*v2.getZ())
