@@ -1,5 +1,5 @@
 from CalculusOperator import CalculusOperator
-
+from vpython import *
 class Vector:
 
 	x,y,z=0,0,0
@@ -34,3 +34,5 @@ class Vector:
 		print "<",self.x,", ",self.y,", ",self.z,">"
 	def toStr(self):
 		return "<",self.x,", ",self.y,", ",self.z,">"
+	def toVPython(self):
+		return vector(self.x,self.y,self.z)
