@@ -14,6 +14,16 @@ class Vector:
 			self.x=xcoor
 			self.y=ycoor
 			self.z=zcoor
+		self.resolveFormat()
+    
+
+	def resolveFormat(self):
+		if(type(self.x)==str and getType(self.x)==float):
+			self.x = float(self.x)
+		if(type(self.y)==str and getType(self.y)==float):
+    			self.y = float(self.y)
+		if(type(self.z)==str and getType(self.z)==float):
+    			self.z = float(self.z)
 
 	def getX(self):
 		return self.x
@@ -31,7 +41,7 @@ class Vector:
 
 	
 	def scale(self,num):
-		if(type(num)==int):
+		if(isinstance(num,(int,float))):
 			if(isinstance(self.x,(int,float))):
 				self.x*=num
 			else:
@@ -116,3 +126,11 @@ class Vector:
 		return "<",self.x,", ",self.y,", ",self.z,">"
 	def toVPython(self):
 		return vector(self.x,self.y,self.z)
+
+
+def getType(num):
+	try:
+		float(num)
+		return float
+	except:
+		return str
