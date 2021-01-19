@@ -3,6 +3,7 @@ from vpython import *
 class Vector:
 
 	x,y,z=0,0,0
+	cOperator = 0
 	
 	def __init__(self,xcoor,ycoor,zcoor,original=None):
 		self.cOperator = CalculusOperator()
@@ -11,19 +12,31 @@ class Vector:
 			self.y = original.y
 			self.z = original.z
 		else:
-			self.x=xcoor
-			self.y=ycoor
-			self.z=zcoor
+			self.x=(self.cOperator.evaluate(str(xcoor)))
+			self.y=(self.cOperator.evaluate(str(ycoor)))
+			self.z=(self.cOperator.evaluate(str(zcoor)))
 		self.resolveFormat()
-    
+
+	def __add__(self,other):
+		return Vector(self.cOperator.add(str(self.x),str(other.x)),self.cOperator.add(str(self.y),str(other.y)),self.cOperator.add(str(self.z),str(other.z)))
+	def __sub__(self,other):
+		return Vector(self.cOperator.subtract(str(self.x),str(other.x)),self.cOperator.subtract(str(self.y),str(other.y)),self.cOperator.subtract(str(self.z),str(other.z)))
+	def __mul__(self,other):
+		return Vector(self.cOperator.multiply(str(self.x),str(other)),self.cOperator.multiply(str(self.y),str(other)),self.cOperator.multiply(str(self.z),str(other)))
+	def __truediv__(self,other):
+		return Vector(self.cOperator.divide(str(self.x),str(other)),self.cOperator.divide(str(self.y),str(other)),self.cOperator.divide(str(self.z),str(other)))
 
 	def resolveFormat(self):
 		if(type(self.x)==str and getType(self.x)==float):
 			self.x = float(self.x)
 		if(type(self.y)==str and getType(self.y)==float):
-    			self.y = float(self.y)
+			self.y = float(self.y)
 		if(type(self.z)==str and getType(self.z)==float):
-    			self.z = float(self.z)
+			self.z = float(self.z)
+	def resolveFormatA(self,val):
+		if(type(val)==str and getType(val)==float):
+			val = float(val)
+		return val
 
 	def getX(self):
 		return self.x
@@ -115,13 +128,13 @@ class Vector:
 			self.z=self.cOperator.divide(self.z,other.z)
 			
 	def getMagnitude(self):
-		return self.cOperator.evaluate(self.cOperator.power( ( self.cOperator.addM([self.cOperator.multiply(self.x,self.x),self.cOperator.multiply(self.y,self.y),self.cOperator.multiply(self.z,self.z)])  ),.5))
+		return self.resolveFormatA(self.cOperator.evaluate(self.cOperator.power( ( self.cOperator.addM([self.cOperator.multiply(self.x,self.x),self.cOperator.multiply(self.y,self.y),self.cOperator.multiply(self.z,self.z)])  ),.5)))
 		
 	def getUnit(self):
 		return Vector(self.cOperator.divide( self.x,self.getMagnitude()) , self.cOperator.divide(self.y,self.getMagnitude()) , self.cOperator.divide(self.z,self.getMagnitude()))
 	
-	def show(self):
-		print ("<",self.x,", ",self.y,", ",self.z,">")
+	def __str__(self):
+		return ("< %s , %s , %s >")%(str(self.x),str(self.y),str(self.z))#("<",self.x,", ",self.y,", ",self.z,">")
 	def toStr(self):
 		return "<",self.x,", ",self.y,", ",self.z,">"
 	def toVPython(self):

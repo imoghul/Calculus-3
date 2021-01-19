@@ -23,10 +23,10 @@ class CalculusOperator:
 	    return self.evaluate(expr)
 
     def divide(self,first,second):
-	    return self.evaluate(("(%s)/(%s)")%(first,second))
+        return self.evaluate(("(%s)/(%s)")%(first,second))
 	
     def add(self,first,second):
-	    return ("(%s)+(%s)")%(first,second)
+        return self.evaluate(("(%s)+(%s)")%(first,second))
     def addM(self,list):
 	    expr=""
 	    for i in range(len(list)):
